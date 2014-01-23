@@ -1,27 +1,17 @@
-'''
-Calculate Difference	
-Calculate Status
-					
-Present	GT 8 hours	
-Absent	0 hours	
-FH	LT 8 hours	Time Out before 13:00
-SH	LT 8 hours	Time In after 13:00
-
-'''
-
 import random
 import datetime
+import csv
 
 
 ########### Simulation Control Variables ###########
 
 hours_range = [9,21]
 minutes_range = [0,60]
-swipes_range = [0,10]
+swipes_range = [0,15]
 emp_ids_range = [1,1001]
 start = datetime.date(2013,01,01) ### Format - YYYY,MM,DD
-end = datetime.date(2013,12,31)
-filename = "log.csv"
+end = datetime.date(2013,01,1)
+filename = "log_raw.csv"
 
 ####################################################
 
@@ -53,7 +43,10 @@ for date in dateList:
 
 ############### Generating Entries For Every Day ###############
 
-fo = open(filename, "w")
+#fo = open(filename, "w")
+
+f = csv.writer(open(filename, "wb"))
+f.writerow(["Date","ID","Swipes"])
 
 for day in range(0,len(dates)):
 
@@ -77,13 +70,14 @@ for day in range(0,len(dates)):
 
 		###
 
-		log = '"'+str(dates[day])+'","IB'+emp_id+'","'+swipes+'"'
-		
-		fo.write(log)
-		fo.write("\n")
+		#log = '"'+str(dates[day])+'","DU'+emp_id+'","'+swipes+'"'
+		f.writerow([dates[day],"DU"+emp_id,swipes])
+
+		#fo.write(log)
+		#fo.write("\n")
 
 	####################################################
 
-fo.close()
+#fo.close()
 
 ##################################################################
