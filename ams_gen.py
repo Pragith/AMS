@@ -9,7 +9,7 @@ hours_range = [9,21]
 minutes_range = [0,60]
 swipes_range = [0,15]
 emp_ids_range = [1,1001]
-start = datetime.date(2013,01,01) ### Format - YYYY,MM,DD
+start = datetime.date(2012,01,01) ### Format - YYYY,MM,DD
 end = datetime.date(2013,12,31)
 filename = "log_raw.csv"
 

@@ -10,7 +10,7 @@ first_half = "FH"
 second_half = "SH"
 half_day = "H"
 half_day_time = 13
-min_req_hours = 8
+min_req_hours = 7
 read_filename = "log_raw.csv"
 write_filename = "log_processed.csv"
 
